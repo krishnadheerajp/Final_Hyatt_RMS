@@ -1,0 +1,113 @@
+<section id="contact" class="contact">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+            <h2>Contact</h2>
+            <p>Need Help? <span>Contact Us</span></p>
+        </div>
+
+        <div class="mb-3">
+            <iframe style="border:0; width: 100%; height: 350px;"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3782.439572321763!2d73.90250931489324!3d18.554210987389503!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c116f67257dd%3A0x3cfb9881ad224c0!2sHyatt%20Pune!5e0!3m2!1sen!2sin!4v1675011319770!5m2!1sen!2sin"
+                frameborder="0" allowfullscreen></iframe>
+        </div><!-- End Google Maps -->
+
+
+        <div class="row gy-4">
+
+            <div class="col-md-6">
+                <div class="info-item  d-flex align-items-center">
+                    <i class="icon bi bi-map flex-shrink-0"></i>
+                    <div>
+                        <h3>Our Address</h3>
+                        <p>
+                            Adjacent To Aga Khan Palace, <br>
+                            88, Nagar Rd, Kalyani Nagar, <br>
+                            Pune, Maharashtra, PO: 411006
+                        </p>
+                    </div>
+                </div>
+            </div><!-- End Info Item -->
+
+            <div class="col-md-6">
+                <div class="info-item d-flex align-items-center">
+                    <i class="icon bi bi-envelope flex-shrink-0"></i>
+                    <div>
+                        <h3>Email Us</h3>
+                        <p>consumeraffairs@hyatt.com</p>
+                    </div>
+                </div>
+            </div><!-- End Info Item -->
+
+            <div class="col-md-6">
+                <div class="info-item  d-flex align-items-center">
+                    <i class="icon bi bi-telephone flex-shrink-0"></i>
+                    <div>
+                        <h3>Call Us</h3>
+                        <p>020 4141 1234</p>
+                    </div>
+                </div>
+            </div><!-- End Info Item -->
+
+            <div class="col-md-6">
+                <div class="info-item  d-flex align-items-center">
+                    <i class="icon bi bi-share flex-shrink-0"></i>
+                    <div>
+                        <h3>Opening Hours</h3>
+                        <div><strong>Mon-Sat:</strong> 11AM - 2AM;
+                            <strong>Sunday:</strong> Closed
+                        </div>
+                    </div>
+                </div>
+            </div><!-- End Info Item -->
+        </div>
+        <form [formGroup]="angForm" novalidate class="php-email-form p-3 p-md-4">
+            <h2 class="text-center">{{msg}}</h2>
+            <div class="row">
+                <div class="col-xl-6 form-group">
+                    <input type="text" formControlName="name" class="form-control" placeholder="Your Name" required>
+                    <div *ngIf="angForm.controls['name'].invalid && (angForm.controls['name'].dirty || angForm.controls['name'].touched)"
+                        class="ms-3 text-danger">
+                        <div *ngIf="angForm.controls['name'].errors">
+                            Name is required.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-6 form-group">
+                    <input type="email" formControlName="email" class="form-control" name="email" id="email"
+                        placeholder="Your Email" required>
+                    <div *ngIf="angForm.controls['email'].invalid && (angForm.controls['email'].dirty || angForm.controls['email'].touched)"
+                        class="ms-3 text-danger">
+                        <div *ngIf="angForm.controls['email'].errors">
+                            Email is required.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="text" formControlName="subject" class="form-control" name="subject" id="subject"
+                    placeholder="Subject" required>
+                <div *ngIf="angForm.controls['subject'].invalid && (angForm.controls['subject'].dirty || angForm.controls['subject'].touched)"
+                    class="ms-3 text-danger">
+                    <div *ngIf="angForm.controls['subject'].errors">
+                        Subject is required.
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <textarea class="form-control" formControlName="description" name="description" rows="5" placeholder="Message"
+                    required></textarea>
+                <div *ngIf="angForm.controls['description'].invalid && (angForm.controls['description'].dirty || angForm.controls['description'].touched)"
+                    class="ms-3 text-danger">
+                    <div *ngIf="angForm.controls['description'].errors">
+                        Message is required.
+                    </div>
+                </div>
+            </div>
+            <div class="text-center"><button type="submit" (click)="Onsubmit(angForm.value)">Send Message</button>
+            </div>
+        </form>
+        <!-- <p>Form value: {{ angForm.value | json }}</p> -->
+        <!--End Contact Form -->
+    </div>
+</section><!-- End Contact Section -->

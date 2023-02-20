@@ -1,0 +1,26 @@
+<div class="container overflow-hidden my-5" style="min-height:70vh">
+    <div class="card mt-5 mb-3">
+        <div class="row g-0">
+            <div class="col-md-4 my-2">
+                <img [src]="item.image" width="100%" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body mt-5">
+                    <h1 class="card-title mt-2 mb-4 text-center">{{item.name}}</h1>
+                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae enim non
+                        iusto! Ratione sed est, eligendi veritatis tempora atque inventore enim nisi, quibusdam, illo
+                        sapiente! Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe distinctio adipisci
+                        dolorem? Laboriosam eaque, ea, saepe repellendus amet, dicta maxime eligendi dignissimos atque
+                        cum minima.</p>
+                    <p class="price fw-bold text-center">
+                        ₹{{item.price}} <br>
+                        <button class="btn btn-primary" *ngIf="checkInCart(item)==false"
+                            (click)="addToCart(item.id,item.price)">Add to Cart</button>
+                        <button class="btn btn-secondary" *ngIf="checkInCart(item)==true"
+                            (click)="removeFromCart(item.id)">Remove from Cart</button>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

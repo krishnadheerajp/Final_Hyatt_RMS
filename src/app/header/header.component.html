@@ -1,0 +1,42 @@
+<!-- ======= Header ======= -->
+<header id="header" class="header fixed-top d-flex align-items-center mb-5">
+    <div class="container d-flex align-items-center justify-content-between">
+
+        <a href="index.html" class="logo d-flex align-items-center me-auto me-lg-0">
+            <h1>Hyatt <span>.</span></h1>
+        </a>
+
+        <nav id="navbar" class="navbar">
+            <ul>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li class="dropdown"><a href="#menu"><span>Menu</span> <i
+                            class="bi bi-chevron-down dropdown-indicator"></i></a>
+                    <ul>
+                        <li class="dropdown"><a href="#"><span>Food Items</span> <i
+                                    class="bi bi-chevron-down dropdown-indicator"></i></a>
+                            <ul>
+                                <li><a href="#menu">Breakfast</a></li>
+                                <li><a href="#menu">Starters</a></li>
+                                <li><a href="#menu">Lunch</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#menu">Drinks & Beverages</a></li>
+                    </ul>
+                </li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav><!-- .navbar -->
+
+        <a class="btn-book-a-table" *ngIf="user_id==undefined" routerLink="login">Sign Up / Login</a>
+        <a class="btn-book-a-table" *ngIf="user_id!=undefined" (click)="logout()">Logout</a>
+        <button routerLink="cart" *ngIf="user_id!=undefined"  class="btn btn-outline-danger"><i class="bi bi-cart"></i> My Cart</button>
+        <button routerLink="order" *ngIf="user_id!=undefined"  class="btn btn-outline-danger"><i class="bi bi-box2-heart"></i> My Orders</button>
+        <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+        <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+
+    </div>
+</header>
+<!-- End Header -->

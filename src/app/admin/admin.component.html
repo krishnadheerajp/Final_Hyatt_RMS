@@ -1,0 +1,164 @@
+<div class="container my-3">
+    <div class="container">
+        <h2>Breakfast Items</h2>
+        <h2>Breakfast Items</h2>
+        <div class="row row-cols-2 row-cols-md-6 g-4">
+            <div class="col" *ngFor="let item of breakfastItems; let i=index">
+                <div class="card">
+                    <img src="{{item.image}}" class="card-img-top" alt="...">
+                    <div class="card-body text-center">
+                        <h5 class="card-title fw-bold">{{item.name}}</h5>
+                        <p class="card-text fw-bold">₹{{item.price}}</p>
+                        <form #updateform="ngForm" (ngSubmit)="update(item.id,updateform.value)">
+                            <input type="text" class="mt-2 form-control" name="name" placeholder="Product name" ngModel />
+                            <input type="text" class="mt-2 form-control" name="price" placeholder="Price" ngModel />
+                            <br> <input type="submit" class="btn btn-dark" name="" value="Update" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container my-5">
+        <h2>Starter Items</h2>
+        <div class="row row-cols-3 row-cols-md-6 g-4">
+            <div class="col" *ngFor="let item of starterItems; let i=index">
+                <div class="card">
+                    <img src="{{item.image}}" class="card-img-top" alt="...">
+                    <div class="card-body text-center">
+                        <h5 class="card-title fw-bold">{{item.name}}</h5>
+                        <p class="card-text fw-bold">₹{{item.price}}</p>
+                        <form #updateform="ngForm" (ngSubmit)="update(item.id,updateform.value)">
+                            <input type="text" class="my-2 form-control" name="name" placeholder="Product name" ngModel />
+                            <input type="text" class="my-2 form-control" name="price" placeholder="Price" ngModel />
+                            <br> <input type="submit" class="btn btn-dark" name="" value="Update" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container my-5">
+        <h2>Lunch Items</h2>
+        <div class="row row-cols-2 row-cols-md-6 g-4">
+            <div class="col" *ngFor="let item of lunchItems; let i=index">
+                <div class="card">
+                    <img src="{{item.image}}" class="card-img-top" alt="...">
+                    <div class="card-body text-center">
+                        <h5 class="card-title fw-bold">{{item.name}}</h5>
+                        <p class="card-text fw-bold">₹{{item.price}}</p>
+                        <form #updateform="ngForm" (ngSubmit)="update(item.id,updateform.value)">
+                            <input type="text" class="my-2 form-control" name="name" placeholder="Product name" ngModel />
+                            <input type="text" class="my-2 form-control" name="price" placeholder="Price" ngModel />
+                            <br> <input type="submit" class="btn btn-dark" name="" value="Update" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container my-5">
+        <h2>Drink Items</h2>
+        <div class="row row-cols-2 row-cols-md-6 g-4">
+            <div class="col" *ngFor="let item of drinkItems; let i=index">
+                <div class="card">
+                    <img src="{{item.image}}" class="card-img-top" style="object-fit: contain; height: 15vw; width: 100%;" alt="...">
+                    <div class="card-body text-center">
+                        <h5 class="card-title fw-bold">{{item.name}}</h5>
+                        <p class="card-text fw-bold">₹{{item.price}}</p>
+                        <form #updateform="ngForm" (ngSubmit)="update(item.id,updateform.value)">
+                            <input type="text" class="my-2 form-control" name="name" placeholder="Product name" ngModel />
+                            <input type="text" class="my-2 form-control" name="price" placeholder="Price" ngModel />
+                            <br> <input type="submit" class="btn btn-dark" name="" value="Update" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container my-5">
+        <h2>Add Product</h2>
+    <form #addform="ngForm" (ngSubmit)="addproduct(addform.value)">
+        <input type="text" class="form-control" name="name" placeholder="Product name" ngModel /><br>
+        <input type="text" class="form-control" name="price" placeholder="Price" ngModel /><br>
+        <input type="text" class="form-control" name="image" placeholder="Product Image Link" ngModel /><br>
+        <label for="select-box" class="form-label">Select a Category</label>
+        <select name="cid" class="form-select" ngModel>
+            <option value="1">Breakfast Item</option>
+            <option value="2">Starter Item</option>
+            <option value="3">Lunch Item</option>
+            <option value="4">Drink Item</option>
+        </select>
+        <input type="submit" class="btn btn-dark mt-3" value="Add" />
+    </form>
+    </div>
+
+
+<div class="container my-5">
+    <h2>Booked Tables</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Date</th>
+                <th scope="col">Time</th>
+                <th scope="col">Number of persons</th>
+                <th scope="col">Special request/ Message</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of bookings; let i=index">
+                <td scope="row">{{item.id}}</td>
+                <td scope="row">{{item.name}}</td>
+                <td scope="row">{{item.email}}</td>
+                <td scope="row">{{item.phone}}</td>
+                <td scope="row">{{item.date}}</td>
+                <td scope="row">{{item.time}}</td>
+                <td scope="row">{{item.nop}}</td>
+                <td scope="row">{{item.message}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="container my-5">
+    <h2>Update Booked Tables</h2>
+    <form #booking="ngForm" (ngSubmit)="updatebooking(booking.value)">
+        <input type="number" name="id" class="form-control mt-3" placeholder="Id" min="0" ngModel> <br>
+        <input type="text" class="form-control" name="date" placeholder="Date, Ex: 2023-02-19" ngModel /><br>
+        <input type="number" class="form-control" min="1" name="nop" placeholder="Number of persons" ngModel /><br>
+        <input type="text" class="form-control" name="time" placeholder="Time, 24H Format" ngModel /><br>
+        <input type="text" class="form-control" name="phone" placeholder="Phone" ngModel /><br>
+        <input type="submit" class="btn btn-dark" value="Update" />
+    </form>
+</div>
+
+ <div class="container my-5">
+    <h2>Feedbacks / Contact Info</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Subject</th>
+                <th scope="col">Description</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of feedback; let i=index">
+                <td scope="row">{{item.id}}</td>
+                <td scope="row">{{item.name}}</td>
+                <td scope="row">{{item.email}}</td>
+                <td scope="row">{{item.subject}}</td>
+                <td scope="row">{{item.description}}</td>
+            </tr>
+        </tbody>
+    </table>
+ </div>
+</div>

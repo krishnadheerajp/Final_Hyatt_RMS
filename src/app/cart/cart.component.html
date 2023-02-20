@@ -1,0 +1,31 @@
+<div class="container overflow-hidden my-5" style="min-height:70vh">
+  <h1 class="text-center">Your Items</h1>
+  <h1 class="text-center mt-3 mb-4">Your Items</h1>
+  <h2 class="text-center my-2">{{message}}</h2>
+  <table class="table mb-5" *ngIf="totalAmount!=0">
+
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Item Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Amount</th>
+        <th scope="col">Image</th>
+        <th scope="col">Quantity</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of cart; let i=index">
+        <th scope="row">{{i+1}}</th>
+        <td scope="row">{{item.name}}</td>
+        <td scope="row">{{item.price}}</td>
+        <td scope="row">{{item.pivot.amount}}</td>
+        <td scope="row" style="width:20% !important"><img src="{{item.image}}" width="25%" height="25%"></td>
+        <td scope="row"><button class="qtbt"><i class="bi bi-dash" (click)="updateCart(i,'minus')"></i></button> {{item.pivot.quantity}} <button class="qtbt"><i class="bi bi-plus" (click)="updateCart(i,'plus')"></i></button></td>
+      </tr>
+    </tbody>
+  </table>
+  <h2 *ngIf="totalAmount!=0">Total Billable Amount: {{totalAmount}}</h2>
+  <button *ngIf="totalAmount!=0" type="butoon" class="btn btn-primary" (click)="pay(); orderItems(itemIds);">Pay Amount</button>
+  <!-- <button class="btn btn-success fs-5" (click)="orderItems(itemIds)">Order Now</button> -->
+</div>

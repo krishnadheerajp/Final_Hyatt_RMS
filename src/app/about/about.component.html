@@ -1,0 +1,131 @@
+<section id="about" class="about">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+            <h2>About Us</h2>
+            <p>Learn More <span>About Us</span></p>
+        </div>
+
+        <div class="row gy-4">
+            <div class="col-lg-7 position-relative about-img" style="background-image: url(assets/img/about.jpg) ;"
+                data-aos="fade-up" data-aos-delay="150">
+                <div class="call-us position-absolute">
+                    <h4>Book a Table</h4>
+                    <p>020 4141 1234</p>
+                </div>
+            </div>
+            <div class="col-lg-5 d-flex align-items-end" data-aos="fade-up" data-aos-delay="300">
+                <div class="content ps-0 ps-lg-5">
+                    <p class="fst-italic">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore
+                        magna aliqua.
+                    </p>
+                    <ul>
+                        <li><i class="bi bi-check2-all"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        </li>
+                        <li><i class="bi bi-check2-all"></i> Duis aute irure dolor in reprehenderit in voluptate velit.
+                        </li>
+                        <li><i class="bi bi-check2-all"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                            Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu
+                            fugiat nulla pariatur.</li>
+                    </ul>
+                    <p>
+                        Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+                        in voluptate
+                        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                        proident
+                    </p>
+
+                    <div class="position-relative mt-4">
+                        <img src="assets/img/about-2.jpg" class="img-fluid" alt="">
+                        <a href="assets/hyatt.webm" class="glightbox play-btn"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section><!-- End About Section -->
+
+<!-- ======= Book A Table Section ======= -->
+<section id="book-a-table" class="book-a-table">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+            <h2>Book A Table</h2>
+            <p>Book <span>Your Table</span> With Us</p>
+        </div>
+
+        <div class="row g-0">
+
+            <div class="col-lg-4 reservation-img" style="background-image: url(assets/img/reservation.jpg);"
+                data-aos="zoom-out" data-aos-delay="200"></div>
+
+            <div class="col-lg-8 d-flex align-items-center reservation-form-bg">
+                <form #f="ngForm" novalidate role="form" class="php-email-form"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <h2 class="text-center">{{msg}}</h2>
+                    <div class="row gy-4">
+                        <div class="col-lg-4 col-md-6">
+                            <input type="text" name="name" [(ngModel)]="user.name" #name="ngModel" required
+                                class="form-control" placeholder="Your Name">
+                            <small class="text-danger ms-3" [hidden]="name.valid || (name.pristine && !f.submitted)">
+                                Name is required
+                            </small>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <input type="email" class="form-control" name="email" [(ngModel)]="user.email"
+                                #email="ngModel" required id="email" placeholder="Your Email" data-rule="email"
+                                data-msg="Please enter a valid email">
+                            <small class="text-danger ms-3" [hidden]="email.valid || (email.pristine && !f.submitted)">
+                                Email is required
+                            </small>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <input type="text" class="form-control" name="phone" [(ngModel)]="user.phone"
+                                #phone="ngModel" required maxlength="10" id="phone" placeholder="Your Phone">
+                            <small class="text-danger ms-3" [hidden]="phone.valid || (phone.pristine && !f.submitted)">
+                                Phone number is required
+                            </small>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <input type="text" name="date" [(ngModel)]="user.date" #date="ngModel" required
+                                class="form-control" id="date" placeholder="Date, Example: 2023-05-06">
+                            <small class="text-danger ms-3" [hidden]="date.valid || (date.pristine && !f.submitted)">
+                                Date is required
+                            </small>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <input type="text" class="form-control" name="time" [(ngModel)]="user.time" #time="ngModel"
+                                required id="time" placeholder="Time, Ex: 12:30:45 24H">
+                            <small class="text-danger ms-3" [hidden]="time.valid || (time.pristine && !f.submitted)">
+                                Time is required
+                            </small>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <input type="number" class="form-control" min="0" [(ngModel)]="user.nop" #nop="ngModel"
+                                required name="nop" id="people" placeholder="# of people">
+                            <small class="text-danger ms-3" [hidden]="nop.valid || (nop.pristine && !f.submitted)">
+                                Number of people is required
+                            </small>
+                        </div>
+                    </div>
+                    <div class="form-group mt-3">
+                        <textarea class="form-control" name="message" rows="5" [(ngModel)]="user.message" #message="" placeholder="Message"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <div class="loading">Loading</div>
+                        <div class="error-message"></div>
+                        <div class="sent-message">Your booking request was sent. We will call back or send an Email to
+                            confirm your reservation. Thank you!</div>
+                    </div>
+                    <div class="text-center"><button type="submit" (click)="ngSubmit(f.value)">Book a Table</button></div>
+                </form>
+            </div><!-- End Reservation Form -->
+
+        </div>
+    </div>
+    <!-- <h5 class="mt-2 text-center"> {{f.value|json}}</h5> -->
+</section>
+<!-- End Book A Table Section -->
